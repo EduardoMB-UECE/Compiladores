@@ -31,8 +31,7 @@ public class AnalizadorLexicoCalculadora {
 
 			// TESTA SE INICIA COM OPERADOR INVALIDO
 			if (numToken == 0 && (TokenEnum.MULTIPLICACAO.equals(token.getToken())
-					|| TokenEnum.DIVISAO.equals(token.getToken()) || TokenEnum.EXPONENCIAL.equals(token.getToken())
-					|| TokenEnum.PARENTESE_DIR.equals(token.getToken()))) {
+					|| TokenEnum.DIVISAO.equals(token.getToken()) || TokenEnum.EXPONENCIAL.equals(token.getToken()))) {
 				throw new AnalisadorLexicoException(
 						mensagemErroTokenInvalido(token.getValor(), MSG_INICIANDO_OPERADOR_ERRADO));
 			}
