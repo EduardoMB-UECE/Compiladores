@@ -21,7 +21,10 @@ public class Main {
 		@SuppressWarnings("unused")
 		List<TokenCalculadora<Object>> resultado = null;
 		try {
-			resultado = AnalizadorLexicoCalculadora.analisarExpressao(expressao);
+			String[] split = expressao.split("\n");
+			for (String linha : split) {
+				resultado = AnalizadorLexicoCalculadora.analisarExpressao(linha);
+			}
 		} catch (AnalisadorLexicoException e) {
 			System.out.println(e.getMessage());
 			System.out.println("################");
@@ -31,7 +34,7 @@ public class Main {
 	}
 
 	/**
-	 * Lê todos os caracteres do arquivo linha a linha.
+	 * Lï¿½ todos os caracteres do arquivo linha a linha.
 	 */
 	private static void carregarArquivoLinhaALinha() {
 		String linha = "";
@@ -41,7 +44,7 @@ public class Main {
 
 			linha = reader.readLine();
 			while (linha != null) {
-				expressao = expressao.concat(linha);
+				expressao = expressao.concat(linha + "\n");
 				linha = reader.readLine();
 			}
 

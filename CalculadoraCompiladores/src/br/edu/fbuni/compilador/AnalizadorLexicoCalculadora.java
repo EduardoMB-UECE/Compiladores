@@ -57,6 +57,10 @@ public class AnalizadorLexicoCalculadora {
 		if (valorToken.matches(RegexUtil.REGEX_IDENTIFICADOR_DE_NUMERO)) {
 			// TRANSFORMA O VALOR DO TOKEN DO TIPO NUMERICO
 			novoToken.setToken(TokenEnum.NUMERO);
+			novoToken.setValor(Integer.valueOf(valorToken));
+		} else if (valorToken.matches(RegexUtil.REGEX_IDENTIFICADOR_DE_NUMERO_REAL)) {
+			// TRANSFORMA O VALOR DO TOKEN DO TIPO NUMERICO COM PONTO FLUTUANTE
+			novoToken.setToken(TokenEnum.NUMERO);
 			novoToken.setValor(Float.valueOf(valorToken));
 		} else
 			switch (valorToken) {
@@ -91,9 +95,9 @@ public class AnalizadorLexicoCalculadora {
 	private static String mensagemErroTokenInvalido(Object valor, int tipo) {
 
 		if (tipo == ERRO_GERAL) {
-			return "Token \"" + valor + "\" não reconhecido.";
+			return "Token \"" + valor + "\" nï¿½o reconhecido.";
 		} else if (tipo == MSG_INICIANDO_SIMBOLO_ERRADO) {
-			return "Iniciando com simbolo \"" + valor + "\". Não é válido.";
+			return "Iniciando com simbolo \"" + valor + "\". Nï¿½o ï¿½ vï¿½lido.";
 		} else if (tipo == MSG_DOIS_OPERADORES_SEGUIDOS) {
 			return "Dois operadores seguidos. Operador indetificado\"" + valor + "\".";
 		}
